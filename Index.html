@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Lockscreen Android 16</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto Flex', sans-serif;
+      background-image: url('https://i.imgur.com/QyTr1yA.jpg'); /* Puedes cambiar el fondo aquí */
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .clock {
+      font-size: 100px;
+      font-weight: bold;
+      text-shadow: 0 0 10px black;
+    }
+
+    .date {
+      font-size: 24px;
+      margin-top: -20px;
+      text-shadow: 0 0 6px black;
+    }
+
+    .icons {
+      margin-top: 40px;
+      display: flex;
+      gap: 30px;
+      font-size: 28px;
+    }
+
+    .icons i {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 14px;
+      border-radius: 50%;
+      backdrop-filter: blur(4px);
+    }
+
+    .lock {
+      margin-top: 30px;
+      font-size: 26px;
+    }
+  </style>
+</head>
+<body>
+  <div class="clock" id="clock">07:22</div>
+  <div class="date">Dom, 6 de jul ☁️ 33°</div>
+  <div class="icons">
+    <i class="fa-brands fa-whatsapp"></i>
+    <i class="fa-solid fa-gear"></i>
+    <i class="fa-solid fa-infinity"></i>
+  </div>
+  <div class="lock">
+    <i class="fa-solid fa-lock"></i>
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const h = now.getHours().toString().padStart(2, '0');
+      const m = now.getMinutes().toString().padStart(2, '0');
+      document.getElementById('clock').textContent = `${h}:${m}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>
