@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Lockscreen Android 16</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('https://i.imgur.com/OMkZ7T5.jpeg'); /* Fondo estilo Motorola */
+      background-size: cover;
+      background-position: center;
+      font-family: 'Roboto', sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    .hora {
+      font-size: 90px;
+      font-weight: bold;
+    }
+
+    .fecha {
+      font-size: 24px;
+      margin-top: -10px;
+    }
+
+    .iconos {
+      margin-top: 30px;
+    }
+
+    .iconos img {
+      width: 42px;
+      margin: 0 15px;
+      filter: drop-shadow(1px 1px 2px black);
+    }
+  </style>
+</head>
+<body>
+  <div class="hora" id="reloj">07:22</div>
+  <div class="fecha" id="fecha">Dom, 6 de Jul 🌤️ 33°</div>
+
+  <div class="iconos">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png"/>
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/settings.png"/>
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/lock.png"/>
+  </div>
+
+  <script>
+    function actualizarReloj() {
+      const reloj = document.getElementById('reloj');
+      const fecha = document.getElementById('fecha');
+      const ahora = new Date();
+
+      // Formato de hora con ceros
+      const horas = ahora.getHours().toString().padStart(2, '0');
+      const minutos = ahora.getMinutes().toString().padStart(2, '0');
+      reloj.textContent = `${horas}:${minutos}`;
+
+      // Fecha en español
+      const dias = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+      const meses
